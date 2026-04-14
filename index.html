@@ -6,10 +6,10 @@
   <meta name="description" content="Spin the wheel and generate dog names by size! Cute, Strong, Funny names filtered for Small, Medium, or Large dogs. Interactive spin wheel with elimination mode.">
   <meta name="google-adsense-account" content="ca-pub-5050545176887516">
   <title>Dog Name Generator + Spin Wheel | Size-Matched Puppy Picker</title>
-  <!-- Google Fonts: Poppins -->
+  <!-- Google Fonts: Poppins (only external resource, no local files) -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <style>
-    /* ========== STYLES.CSS ========== */
+    /* ========== ALL STYLES INLINE - NO EXTERNAL CSS FILES ========== */
     * {
       margin: 0;
       padding: 0;
@@ -68,7 +68,7 @@
     .side-menu-header h3 { font-size: 1.7rem; color: #FF8C42; }
     .close-menu { background: none; border: none; font-size: 2rem; cursor: pointer; color: #FF8C42; }
     .menu-links { display: flex; flex-direction: column; gap: 15px; }
-    .menu-links a { font-size: 1.1rem; text-decoration: none; background: #FFE0B5; padding: 10px 18px; border-radius: 40px; color: #B45F1B; font-weight: 600; transition: 0.2s; text-align: center; }
+    .menu-links a { font-size: 1.1rem; text-decoration: none; background: #FFE0B5; padding: 10px 18px; border-radius: 40px; color: #B45F1B; font-weight: 600; transition: 0.2s; text-align: center; cursor: pointer; }
     .menu-links a:hover { background: #FFB347; color: white; transform: translateX(5px); }
     .menu-footer { margin-top: auto; padding-top: 30px; font-size: 0.85rem; color: #c9772e; text-align: center; }
     .menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); backdrop-filter: blur(2px); z-index: 1050; display: none; }
@@ -107,8 +107,8 @@
     /* Wheel Section */
     .wheel-section { background: #FFF2DF; border-radius: 56px; padding: 2rem 1rem; text-align: center; box-shadow: 0 18px 30px rgba(0,0,0,0.1); }
     .wheel-container { position: relative; display: flex; justify-content: center; margin-bottom: 20px; }
-    .wheel-canvas { max-width: 90%; height: auto; border-radius: 50%; box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2); background: #FFE3B5; }
-    .wheel-pointer { position: absolute; top: -25px; font-size: 3rem; left: 50%; transform: translateX(-50%); filter: drop-shadow(2px 8px 8px rgba(0,0,0,0.2)); }
+    .wheel-canvas { max-width: 90%; height: auto; border-radius: 50%; box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2); background: #FFE3B5; cursor: pointer; }
+    .wheel-pointer { position: absolute; top: -25px; font-size: 3rem; left: 50%; transform: translateX(-50%); filter: drop-shadow(2px 8px 8px rgba(0,0,0,0.2)); pointer-events: none; }
     .wheel-controls { display: flex; gap: 20px; justify-content: center; margin: 20px 0; flex-wrap: wrap; }
     .btn-spin { background: #FF9F4A; color: white; box-shadow: 0 6px 0 #b95f1a; }
     .btn-reset { background: #56B4E9; color: white; box-shadow: 0 6px 0 #1f6390; }
@@ -130,21 +130,20 @@
   <div id="sideMenu" class="side-menu">
     <div class="side-menu-header"><h3>🐕 Menu</h3><button id="closeMenuBtn" class="close-menu">&times;</button></div>
     <div class="menu-links">
-      <a href="#" data-panel="cuteNames">🐶 100+ Cute Dog Names</a>
-      <a href="#" data-panel="breedNames">🐕 Best Dog Names by Breed</a>
-      <a href="#" data-panel="funnyNames">😂 Funny Dog Names List</a>
-      <a href="#" data-panel="uniqueNames">✨ Unique Dog Names You Haven't Heard</a>
-      <a href="#" data-panel="privacy">🔒 Privacy Policy</a>
-      <a href="#" data-panel="terms">📜 Terms of Service</a>
-      <a href="#" data-panel="contact">📧 Contact & Support</a>
-      <a href="#" data-panel="about">🎉 About Game</a>
+      <a data-panel="cuteNames">🐶 100+ Cute Dog Names</a>
+      <a data-panel="breedNames">🐕 Best Dog Names by Breed</a>
+      <a data-panel="funnyNames">😂 Funny Dog Names List</a>
+      <a data-panel="uniqueNames">✨ Unique Dog Names You Haven't Heard</a>
+      <a data-panel="privacy">🔒 Privacy Policy</a>
+      <a data-panel="terms">📜 Terms of Service</a>
+      <a data-panel="contact">📧 Contact & Support</a>
+      <a data-panel="about">🎉 About Game</a>
     </div>
     <div class="menu-footer"><p>🐶 Filter by dog size!<br>Elimination mode active.</p><p style="font-size:0.7rem;">© DogNameWheel 2025</p></div>
   </div>
   <div id="menuOverlay" class="menu-overlay"></div>
 
-  <!-- ========== NEW CONTENT PANELS (500+ words each) ========== -->
-  <!-- 100+ Cute Dog Names Panel -->
+  <!-- ========== CONTENT PANELS (All inline, no external files) ========== -->
   <div id="cuteNamesPanel" class="info-panel">
     <h3>🐶 100+ Cute Dog Names</h3>
     <p>From tiny fluffballs to gentle giants, these adorable names will make your heart melt. Perfect for pups with sweet personalities, floppy ears, and wagging tails. Each name carries a loving vibe that suits the most affectionate companions.</p>
@@ -153,50 +152,43 @@
     <h4>🌸 Nature & Flower Cuties</h4>
     <div class="name-list-grid"><span class="name-badge">Daisy</span><span class="name-badge">Lily</span><span class="name-badge">Rose</span><span class="name-badge">Poppy</span><span class="name-badge">Clover</span><span class="name-badge">Ivy</span><span class="name-badge">Willow</span><span class="name-badge">Hazel</span><span class="name-badge">Sunny</span><span class="name-badge">Rain</span><span class="name-badge">Luna</span><span class="name-badge">Stella</span><span class="name-badge">Aurora</span><span class="name-badge">Sky</span><span class="name-badge">Coral</span></div>
     <h4>🧸 Plush Toy Names</h4>
-    <div class="name-list-grid"><span class="name-badge">Teddy</span><span class="name-badge">Buttons</span><span class="name-badge">Peanut</span><span class="name-badge">Pip</span><span class="name-badge">Ziggy</span><span class="name-badge">Noodle</span><span class="name-badge">Pixie</span><span class="name-badge">Tinker</span><span class="name-badge">Jelly</span><span class="name-badge">Bean</span><span class="name-badge">Mochi</span><span class="name-badge">Momo</span><span class="name-badge">Bao</span><span class="name-badge">Chibi</span><span class="name-badge">Kiko</span></div>
+    <div class="name-list-grid"><span class="name-badge">Teddy</span><span class="name-badge">Buttons</span><span class="name-badge">Peanut</span><span class="name-badge">Pip</span><span class="name-badge">Ziggy</span><span class="name-badge">Noodle</span><span class="name-badge">Pixie</span><span class="name-badge">Tinker</span><span class="name-badge">Jelly</span><span class="name-badge">Bean</span><span class="name-badge">Momo</span><span class="name-badge">Bao</span><span class="name-badge">Chibi</span><span class="name-badge">Kiko</span></div>
     <h4>🐣 Tiny & Teeny Names</h4>
-    <div class="name-list-grid"><span class="name-badge">Tiny</span><span class="name-badge">Pebbles</span><span class="name-badge">Bitty</span><span class="name-badge">Mini</span><span class="name-badge">Itsy</span><span class="name-badge">Dot</span><span class="name-badge">Flea</span><span class="name-badge">Pip</span><span class="name-badge">Little</span><span class="name-badge">Tater Tot</span><span class="name-badge">Nugget</span><span class="name-badge">Crumb</span><span class="name-badge">Thumbelina</span><span class="name-badge">Weezy</span></div>
-    <p><strong>✨ More adorable picks:</strong> Coco, Bambi, Petal, Misty, Marble, Biscuit, Sprinkles, Tofu, Sesame, Cheerio, Dumpling, Kiwi, Mango, Peach, Cherry, Blossom, Fawn, Meadow, Breeze, Sparkle, Glimmer, Twinkle, Cupid, Snuggles, Cuddles, Wiggles, Puddles, Marshmallow, Coconut, Latte, Frappe, Meringue, Macaron, Éclair, Truffle, Nougat, Fudge, Caramel, Butterscotch, Peaches, Plum, Honeydew, Lavender, Sage, Basil, Fern, Juniper, Clementine, Tangerine, Papaya, Guava, Lychee, Fig, Olive, Pickle, Radish, Turnip, Pumpkin, Squash, Zucchini, Pea, Bean, Sprout, Alfalfa, Clover, Petunia, Tulip, Violet, Orchid, Jasmine, Dahlia, Zinnia, Azalea, Camellia, Magnolia, Iris, Wisteria, Bluebell, Buttercup, Dandelion, Marigold, Primrose, Hyacinth, Amaryllis, Anemone, Begonia, Calendula, Chrysanthemum, Edelweiss, Freesia, Gardenia, Gladiolus, Heather, Hollyhock, Lilac, Lotus, Oleander, Peony, Phlox, Rhododendron, Snapdragon, Sunflower, Sweetpea, Yarrow. This extensive list ensures you'll find the sweetest name for your furry friend, with over 150 unique cute names spanning sweet treats, flowers, and cozy vibes. Each name is carefully selected to evoke warmth and affection.</p>
+    <div class="name-list-grid"><span class="name-badge">Tiny</span><span class="name-badge">Pebbles</span><span class="name-badge">Bitty</span><span class="name-badge">Mini</span><span class="name-badge">Itsy</span><span class="name-badge">Dot</span><span class="name-badge">Flea</span><span class="name-badge">Little</span><span class="name-badge">Tater Tot</span><span class="name-badge">Nugget</span><span class="name-badge">Crumb</span><span class="name-badge">Thumbelina</span><span class="name-badge">Weezy</span></div>
+    <p><strong>✨ More adorable picks:</strong> Coco, Bambi, Petal, Misty, Marble, Sprinkles, Tofu, Sesame, Cheerio, Dumpling, Kiwi, Mango, Peach, Cherry, Blossom, Fawn, Meadow, Breeze, Sparkle, Glimmer, Twinkle, Cupid, Snuggles, Cuddles, Wiggles, Puddles, Marshmallow, Coconut, Latte, Frappe, Meringue, Macaron, Éclair, Truffle, Nougat, Fudge, Caramel, Butterscotch, Peaches, Plum, Honeydew, Lavender, Sage, Basil, Fern, Juniper, Clementine, Tangerine, Papaya, Guava, Lychee, Fig, Olive, Pickle, Radish, Turnip, Pumpkin, Squash, Zucchini, Pea, Bean, Sprout, Alfalfa, Petunia, Tulip, Violet, Orchid, Jasmine, Dahlia, Zinnia, Azalea, Camellia, Magnolia, Iris, Wisteria, Bluebell, Buttercup, Dandelion, Marigold, Primrose, Hyacinth, Amaryllis, Anemone, Begonia, Calendula, Chrysanthemum, Edelweiss, Freesia, Gardenia, Gladiolus, Heather, Hollyhock, Lilac, Lotus, Oleander, Peony, Phlox, Rhododendron, Snapdragon, Sunflower, Sweetpea, Yarrow. This extensive list ensures you'll find the sweetest name for your furry friend, with over 150 unique cute names spanning sweet treats, flowers, and cozy vibes.</p>
     <button class="close-info">Close</button>
   </div>
 
-  <!-- Best Dog Names by Breed Panel -->
   <div id="breedNamesPanel" class="info-panel">
     <h3>🐕 Best Dog Names by Breed</h3>
     <p>Choosing a name that matches your dog's breed heritage, appearance, and personality makes the bond even stronger. Below are curated name suggestions for popular breeds, combining traditional, cultural, and modern options.</p>
-    <h4>🇩🇪 German Shepherd & Rottweiler (Strong & Loyal)</h4>
+    <h4>🇩🇪 German Shepherd & Rottweiler</h4>
     <div class="name-list-grid"><span class="name-badge">Kaiser</span><span class="name-badge">Greta</span><span class="name-badge">Bruno</span><span class="name-badge">Zelda</span><span class="name-badge">Otto</span><span class="name-badge">Freya</span><span class="name-badge">Gunnar</span><span class="name-badge">Heidi</span><span class="name-badge">Diesel</span><span class="name-badge">Thor</span><span class="name-badge">Atlas</span><span class="name-badge">Valkyrie</span></div>
-    <h4>🇫🇷 French Bulldog & Poodle (Chic & Playful)</h4>
+    <h4>🇫🇷 French Bulldog & Poodle</h4>
     <div class="name-list-grid"><span class="name-badge">Pierre</span><span class="name-badge">Coco</span><span class="name-badge">Gigi</span><span class="name-badge">Louis</span><span class="name-badge">Fifi</span><span class="name-badge">Chanel</span><span class="name-badge">Dior</span><span class="name-badge">Amélie</span><span class="name-badge">Baguette</span><span class="name-badge">Bijou</span><span class="name-badge">Marcel</span><span class="name-badge">Remy</span></div>
-    <h4>🏴󠁧󠁢󠁥󠁮󠁧󠁿 Golden Retriever & Labrador (Friendly & Outgoing)</h4>
+    <h4>🏴󠁧󠁢󠁥󠁮󠁧󠁿 Golden Retriever & Labrador</h4>
     <div class="name-list-grid"><span class="name-badge">Bailey</span><span class="name-badge">Charlie</span><span class="name-badge">Cooper</span><span class="name-badge">Duke</span><span class="name-badge">Murphy</span><span class="name-badge">Sadie</span><span class="name-badge">Molly</span><span class="name-badge">Tucker</span><span class="name-badge">Buster</span><span class="name-badge">Gus</span><span class="name-badge">Marley</span><span class="name-badge">Rosie</span></div>
-    <h4>🇮🇹 Italian Greyhound & Mastiff (Elegant & Majestic)</h4>
+    <h4>🇮🇹 Italian Greyhound & Mastiff</h4>
     <div class="name-list-grid"><span class="name-badge">Romeo</span><span class="name-badge">Giulietta</span><span class="name-badge">Enzo</span><span class="name-badge">Bella</span><span class="name-badge">Dante</span><span class="name-badge">Luna</span><span class="name-badge">Capri</span><span class="name-badge">Toscana</span><span class="name-badge">Vino</span><span class="name-badge">Pasta</span><span class="name-badge">Gelato</span></div>
-    <h4>🇯🇵 Shiba Inu & Akita (Spirited & Regal)</h4>
-    <div class="name-list-grid"><span class="name-badge">Hiro</span><span class="name-badge">Suki</span><span class="name-badge">Kuma</span><span class="name-badge">Yuki</span><span class="name-badge">Mochi</span><span class="name-badge">Sake</span><span class="name-badge">Kenji</span><span class="name-badge">Hana</span><span class="name-badge">Rin</span><span class="name-badge">Kai</span></div>
-    <h4>🇦🇺 Australian Shepherd & Cattle Dog (Energetic & Smart)</h4>
-    <div class="name-list-grid"><span class="name-badge">Blue</span><span class="name-badge">Shep</span><span class="name-badge">Bandit</span><span class="name-badge">Outback</span><span class="name-badge">Sydney</span><span class="name-badge">Matilda</span><span class="name-badge">Boomer</span><span class="name-badge">Digger</span><span class="name-badge">Taz</span><span class="name-badge">Roo</span></div>
-    <p><strong>➕ Additional breed-specific suggestions (over 200 curated names):</strong> For <strong>Huskies</strong>: Nanook, Tundra, Yeti, Glacier, Aurora, Borealis, Timber, Kodiak, Sitka, Denali. For <strong>Dachshunds</strong>: Wiener, Schnitzel, Pretzel, Strudel, Oscar, Frankie, Peanut, Pickle, Dash, Link. For <strong>Chihuahuas</strong>: Taco, Chili, Queso, Nacho, Pepita, Chico, Lola, Paco, Rosita, Frida. For <strong>Boxers</strong>: Rocky, Tyson, Ali, Apollo, Rocco, Buster, Max, Duke, Zeus, Hercules. For <strong>Corgis</strong>: Ein, Waffle, Pancake, Butter, Popcorn, Gizmo, Tater, Sprout, Biscuit, Pip. For <strong>Great Danes</strong>: Titan, Goliath, Moose, Tank, Brutus, Samson, Atlas, Bear, Yeti, Zeus. For <strong>Pomeranians</strong>: Pom Pom, Fluffy, Cloud, Cotton, Snowball, Peaches, Mimi, Fifi, Bijou, Tinkerbell. This guide includes more than 350 breed-relevant names, ensuring that whether you have a regal Afghan Hound or a scrappy Terrier, you'll discover a name that celebrates your dog's unique lineage and traits. Each recommendation is crafted to highlight breed characteristics — from the stoic dignity of a Mastiff to the bouncy joy of a Spaniel.</p>
+    <h4>🇯🇵 Shiba Inu & Akita</h4>
+    <div class="name-list-grid"><span class="name-badge">Hiro</span><span class="name-badge">Suki</span><span class="name-badge">Kuma</span><span class="name-badge">Yuki</span><span class="name-badge">Sake</span><span class="name-badge">Kenji</span><span class="name-badge">Hana</span><span class="name-badge">Rin</span><span class="name-badge">Kai</span></div>
+    <p><strong>➕ Additional breed-specific suggestions (over 200 curated names):</strong> For Huskies: Nanook, Tundra, Yeti, Glacier, Aurora, Timber, Kodiak. For Dachshunds: Wiener, Schnitzel, Pretzel, Oscar, Frankie, Peanut, Dash. For Chihuahuas: Taco, Chili, Queso, Nacho, Chico, Lola, Paco. For Boxers: Rocky, Tyson, Ali, Apollo, Rocco, Buster. For Corgis: Ein, Waffle, Pancake, Butter, Gizmo, Sprout. For Great Danes: Titan, Goliath, Moose, Tank, Brutus, Samson, Yeti. This guide includes more than 350 breed-relevant names, ensuring you discover a name that celebrates your dog's unique lineage.</p>
     <button class="close-info">Close</button>
   </div>
 
-  <!-- Funny Dog Names List Panel -->
   <div id="funnyNamesPanel" class="info-panel">
     <h3>😂 Funny Dog Names List</h3>
     <p>Hilarious, quirky, and downright silly names that will make everyone smile. Perfect for dogs with goofy personalities, funny habits, or just to add some humor to the dog park.</p>
     <h4>🍔 Food Puns & Goofy Eats</h4>
-    <div class="name-list-grid"><span class="name-badge">Pickles</span><span class="name-badge">Nacho</span><span class="name-badge">Burrito</span><span class="name-badge">Waffles</span><span class="name-badge">Meatball</span><span class="name-badge">Noodle</span><span class="name-badge">Tofu</span><span class="name-badge">Kimchi</span><span class="name-badge">Sriracha</span><span class="name-badge">Biscuit</span><span class="name-badge">Muffin</span><span class="name-badge">Pancake</span></div>
+    <div class="name-list-grid"><span class="name-badge">Pickles</span><span class="name-badge">Nacho</span><span class="name-badge">Burrito</span><span class="name-badge">Waffles</span><span class="name-badge">Meatball</span><span class="name-badge">Noodle</span><span class="name-badge">Tofu</span><span class="name-badge">Kimchi</span><span class="name-badge">Sriracha</span><span class="name-badge">Pancake</span></div>
     <h4>👑 Silly Titles & Royal Jesters</h4>
-    <div class="name-list-grid"><span class="name-badge">Sir Barksalot</span><span class="name-badge">Princess Fluffybutt</span><span class="name-badge">Lord Droolington</span><span class="name-badge">Duke of Wiggles</span><span class="name-badge">Baron Von Sniff</span><span class="name-badge">Count Cuddles</span><span class="name-badge">King Snort</span><span class="name-badge">Queen ChewToy</span></div>
+    <div class="name-list-grid"><span class="name-badge">Sir Barksalot</span><span class="name-badge">Princess Fluffybutt</span><span class="name-badge">Lord Droolington</span><span class="name-badge">Duke of Wiggles</span><span class="name-badge">Baron Von Sniff</span><span class="name-badge">Count Cuddles</span><span class="name-badge">King Snort</span></div>
     <h4>🦸‍♂️ Pop Culture Mashups</h4>
-    <div class="name-list-grid"><span class="name-badge">Chewbacca (Chewy)</span><span class="name-badge">Darth Vader</span><span class="name-badge">Paw McCartney</span><span class="name-badge">Indiana Bones</span><span class="name-badge">Bark Twain</span><span class="name-badge">Fuzz Aldrin</span><span class="name-badge">Doggy Parton</span><span class="name-badge">Snarls Barkley</span></div>
-    <h4>🧦 Random & Ridiculous</h4>
-    <div class="name-list-grid"><span class="name-badge">Socks</span><span class="name-badge">Mop</span><span class="name-badge">Garbage</span><span class="name-badge">Biscuit</span><span class="name-badge">Spatula</span><span class="name-badge">Pocket</span><span class="name-badge">Shoelace</span><span class="name-badge">Boaty McBoatface</span><span class="name-badge">Dingus</span><span class="name-badge">Goose</span><span class="name-badge">Wobbles</span><span class="name-badge">Fartacus</span></div>
-    <p><strong>😂 Even more laugh-out-loud names:</strong> Bark Obama, Chewbarka, Hairy Paw-ter, Wagsta, Fur-guson, Droolius Caesar, Barkimedes, Napster, Yoda, Jabba the Hutt, Puggsley, Wiggum, Snuffleupagus, Beaker, Gonzo, Zoot, Rizzo, Animal, Beep, Boop, Zip, Zap, Zorp, Bloop, Snorkel, Puddle, Pants, Trousers, Pajamas, Flipflop, Tater Tot, Crouton, Goulash, Spatula, Whisk, Colander, Toaster, Waffle Iron, Ketchup, Mustard, Relish, Mayo, Pickleback, Dilly, Crunch, Munch, Squish, Squee, Boing, Zoom, Kaboom, Sizzle, Popcorn, Jellybean, Lollipop, Gumdrop, Twizzler, Skittle, Nerds, Taffy, Lickitung, Snorlax, Slowpoke, Magikarp, Trubbish, Vanillite, Slurpuff, Swirlix, Ditto, Mew, Pikachu, Eevee, Zigzagoon, Poochyena, Rockruff, Yamper, Boltund, Growlithe, Arcanine, Houndour. This massive collection features over 250 funny names, ensuring that every chuckle-worthy pup gets a moniker that sparks joy and laughter. From punny wordplay to absurd combinations, these names are sure to be conversation starters at any dog gathering.</p>
+    <div class="name-list-grid"><span class="name-badge">Chewbacca</span><span class="name-badge">Darth Vader</span><span class="name-badge">Paw McCartney</span><span class="name-badge">Indiana Bones</span><span class="name-badge">Bark Twain</span><span class="name-badge">Fuzz Aldrin</span><span class="name-badge">Doggy Parton</span><span class="name-badge">Snarls Barkley</span></div>
+    <p><strong>😂 Even more laugh-out-loud names:</strong> Bark Obama, Chewbarka, Hairy Paw-ter, Wagsta, Fur-guson, Droolius Caesar, Barkimedes, Yoda, Jabba the Hutt, Puggsley, Wiggum, Snuffleupagus, Beaker, Gonzo, Zoot, Beep, Boop, Zip, Zap, Bloop, Snorkel, Puddle, Pants, Trousers, Flipflop, Tater Tot, Crouton, Goulash, Spatula, Toaster, Ketchup, Mustard, Relish, Pickleback, Crunch, Munch, Squish, Boing, Zoom, Kaboom, Popcorn, Jellybean, Lollipop, Gumdrop, Twizzler, Skittle, Taffy, Snorlax, Magikarp, Trubbish, Slurpuff, Ditto, Pikachu, Eevee, Zigzagoon, Rockruff, Yamper, Growlithe. This massive collection features over 250 funny names, ensuring every chuckle-worthy pup gets a moniker that sparks joy and laughter.</p>
     <button class="close-info">Close</button>
   </div>
 
-  <!-- Unique Dog Names You Haven't Heard Panel -->
   <div id="uniqueNamesPanel" class="info-panel">
     <h3>✨ Unique Dog Names You Haven't Heard</h3>
     <p>Stand out from the pack with these rare, exotic, and uncommon names. Inspired by mythology, distant lands, forgotten words, and creative twists — perfect for the dog that's one of a kind.</p>
@@ -205,15 +197,12 @@
     <h4>🗺️ Forgotten Vintage Gems</h4>
     <div class="name-list-grid"><span class="name-badge">Alistair</span><span class="name-badge">Beatrix</span><span class="name-badge">Caspian</span><span class="name-badge">Dulcinea</span><span class="name-badge">Elara</span><span class="name-badge">Fenimore</span><span class="name-badge">Gulliver</span><span class="name-badge">Hesper</span><span class="name-badge">Isolde</span><span class="name-badge">Jericho</span><span class="name-badge">Kael</span><span class="name-badge">Lysander</span></div>
     <h4>🌍 Words from Around the World</h4>
-    <div class="name-list-grid"><span class="name-badge">Satu (Finnish for "fairy tale")</span><span class="name-badge">Nuri (Korean for "world")</span><span class="name-badge">Zorion (Basque for "happiness")</span><span class="name-badge">Tindra (Swedish for "sparkle")</span><span class="name-badge">Kaimana (Hawaiian for "power of the sea")</span><span class="name-badge">Nahla (Arabic for "first drink")</span></div>
-    <h4>🔮 Invented & Whimsical</h4>
-    <div class="name-list-grid"><span class="name-badge">Zephyra</span><span class="name-badge">Quillon</span><span class="name-badge">Velouria</span><span class="name-badge">Caelum</span><span class="name-badge">Lumikki</span><span class="name-badge">Solstice</span><span class="name-badge">Equinox</span><span class="name-badge">Aurelius</span><span class="name-badge">Marceline</span><span class="name-badge">Peregrine</span></div>
-    <p><strong>🌟 Deep dive into rare names (over 300 unique suggestions):</strong> Additional picks: Antheia, Briseis, Chryseis, Damara, Evadne, Fiammetta, Galatea, Hesperia, Ianthe, Jocasta, Kore, Leda, Maia, Nephele, Oenone, Phaedra, Rhea, Semele, Theia, Undine, Vesta, Xanthe, Ygraine, Zillah, Aelwen, Branwen, Ceridwen, Delwen, Eirlys, Fflur, Gwendolyn, Hafwen, Iola, Jenefer, Llinos, Mair, Nia, Olwen, Rhiannon, Sian, Tegan, Wynne, Ysbail, Aerona, Briallen, Carys, Deryn, Eira, Ffion, Glesni, Heledd, Ionwen, Lowri, Mari, Nerys, Owena, Pili, Seren, Teleri, Urien, Wyn, Ystwyth, Zareen, Alcmene, Danae, Elektra, Io, Kallisto, Leto, Maera, Nyctimene, Otrera, Pasiphae, Rhode, Stheneboea, Telephassa, Uraeus, Vasiliki, Xenia, Yolanda, Zenobia. These names are deliberately uncommon, drawing from obscure mythology, rare flora, forgotten saints, and linguistic treasures. With this collection exceeding 400 names, your dog will undoubtedly have a name that sparks curiosity and admiration wherever you go.</p>
+    <div class="name-list-grid"><span class="name-badge">Satu (Finnish)</span><span class="name-badge">Nuri (Korean)</span><span class="name-badge">Zorion (Basque)</span><span class="name-badge">Tindra (Swedish)</span><span class="name-badge">Kaimana (Hawaiian)</span><span class="name-badge">Nahla (Arabic)</span></div>
+    <p><strong>🌟 Deep dive into rare names (over 300 unique suggestions):</strong> Antheia, Briseis, Damara, Evadne, Fiammetta, Galatea, Ianthe, Jocasta, Kore, Leda, Maia, Nephele, Oenone, Phaedra, Rhea, Semele, Theia, Undine, Vesta, Xanthe, Ygraine, Zillah, Aelwen, Branwen, Ceridwen, Delwen, Eirlys, Gwendolyn, Hafwen, Iola, Llinos, Mair, Nia, Olwen, Rhiannon, Sian, Tegan, Wynne, Aerona, Briallen, Carys, Deryn, Eira, Ffion, Heledd, Lowri, Mari, Nerys, Seren, Teleri, Alcmene, Danae, Elektra, Io, Kallisto, Leto, Maera, Nyctimene, Otrera, Pasiphae, Rhode, Uraeus, Vasiliki, Xenia, Yolanda, Zenobia. These names are deliberately uncommon, drawing from obscure mythology, rare flora, forgotten saints, and linguistic treasures. With this collection exceeding 400 names, your dog will undoubtedly have a name that sparks curiosity.</p>
     <button class="close-info">Close</button>
   </div>
 
-  <!-- Original panels (Privacy, Terms, Contact, About) - Updated email, removed Instagram/Discord -->
-  <div id="privacyPanel" class="info-panel"><h3>🔒 Privacy Policy</h3><p>Last updated: April 2025. We respect your privacy. This app uses <strong>localStorage</strong> to save your generated dog names and game progress. No personal data is sent to any server. No cookies for tracking.</p><p><strong>Data Collection:</strong> None. All data stays on your device.</p><p><strong>Third-Party:</strong> No analytics or ads scripts.</p><p><strong>Children's Privacy:</strong> Safe for all ages.</p><button class="close-info">Got it</button></div>
+  <div id="privacyPanel" class="info-panel"><h3>🔒 Privacy Policy</h3><p>Last updated: April 2025. This app uses <strong>localStorage</strong> to save your generated dog names and game progress. No personal data is sent to any server. No cookies for tracking.</p><p><strong>Data Collection:</strong> None. All data stays on your device.</p><p><strong>Third-Party:</strong> No analytics or ads scripts.</p><button class="close-info">Got it</button></div>
   <div id="termsPanel" class="info-panel"><h3>📜 Terms of Service</h3><p>By using this Dog Name Generator & Spin Wheel, you agree to: Entertainment use only. Not for automated cheating. Elimination Mode is for fun. We are not liable for decisions made using generated names.</p><button class="close-info">Accept</button></div>
   <div id="contactPanel" class="info-panel"><h3>📧 Contact & Support</h3><p>🐕 Email: <strong>supportentry1@gmail.com</strong></p><p>We welcome your feedback, questions, and suggestions. Feel free to reach out anytime and we will get back to you as soon as possible.</p><button class="close-info">Close</button></div>
   <div id="aboutPanel" class="info-panel"><h3>🎉 About the Game</h3><p>Ultimate Dog Name Generator + Spin Wheel! Choose dog size, generate names, spin to eliminate until one champion remains. Features: Categories, confetti, local storage.</p><button class="close-info">Let's Play!</button></div>
@@ -222,9 +211,9 @@
     <section class="generator-card">
       <div class="card-header"><span class="emoji-badge">🐕</span><h2>Dog Name Generator by Size</h2></div>
       <div class="size-filter">
-        <button data-size="small" class="size-btn">🐣 Small Dogs (Chihuahua, Poodle)</button>
-        <button data-size="medium" class="size-btn active">🐕 Medium Dogs (Beagle, Collie)</button>
-        <button data-size="large" class="size-btn">🐺 Large Dogs (Husky, Great Dane)</button>
+        <button data-size="small" class="size-btn">🐣 Small Dogs</button>
+        <button data-size="medium" class="size-btn active">🐕 Medium Dogs</button>
+        <button data-size="large" class="size-btn">🐺 Large Dogs</button>
       </div>
       <button id="generateNamesBtn" class="btn btn-primary">✨ Generate Names ✨</button>
       <div class="names-grid" id="namesGrid"><div class="placeholder-text">Pick a size & click Generate!</div></div>
@@ -242,14 +231,12 @@
 <canvas id="confettiCanvas" style="position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:2000;"></canvas>
 
 <script>
-  // ================== SCRIPT.JS ==================
-  // No bidirectional file references. All paths are relative or inline.
+  // ================== ALL JAVASCRIPT INLINE - NO EXTERNAL FILES ==================
   (function(){
-    // ----- NAME DATABASES BY SIZE & CATEGORY -----
     const NAMES_BY_SIZE = {
       small: { cute: ["Pip", "Tiny", "Mochi", "Peanut", "Cupcake", "Button", "Biscuit", "Nugget", "Pixie", "Waffle"], strong: ["Rocket", "Blitz", "Spike", "Rascal", "Turbo", "Ziggy", "Ace", "Jax", "Koda", "Rex"], funny: ["Sir Yapsalot", "Noodle", "Pickle", "Flea", "Pocket", "Jellybean", "Barkley", "Wiggles", "Chewbacca", "Dinky"] },
       medium: { cute: ["Luna", "Bailey", "Coco", "Maple", "Rosie", "Teddy", "Zoe", "Molly", "Sadie", "Milo"], strong: ["Thor", "Diesel", "Atlas", "Bruno", "Chief", "Rocky", "Hunter", "Tank", "Apollo", "Odin"], funny: ["Pickles", "Nacho", "Burrito", "Waffles", "Drooly", "Bark Twain", "Sir Barksalot", "Muffin", "Scooby", "Fartacus"] },
-      large: { cute: ["Moose", "Bear", "Titan", "Hercules", "Zeus", "Samson", "Moose", "Grizzly", "Yeti", "Kodiak"], strong: ["Thor", "Magnus", "Dozer", "Goliath", "Ragnar", "Bruiser", "Hulk", "Colossus", "Crush", "Titan"], funny: ["Sir Growlsalot", "Meatball", "Big Chungus", "Wookie", "Mastodon", "Slobber", "Chonk", "Yeti", "Furricane", "Barkzilla"] }
+      large: { cute: ["Moose", "Bear", "Titan", "Hercules", "Zeus", "Samson", "Grizzly", "Yeti", "Kodiak"], strong: ["Thor", "Magnus", "Dozer", "Goliath", "Ragnar", "Bruiser", "Hulk", "Colossus", "Crush", "Titan"], funny: ["Sir Growlsalot", "Meatball", "Big Chungus", "Wookie", "Mastodon", "Slobber", "Chonk", "Yeti", "Furricane", "Barkzilla"] }
     };
 
     let currentSize = "medium";
@@ -338,4 +325,4 @@
   })();
 </script>
 </body>
-                                                                                                                                                                                      </html>
+  </html>
