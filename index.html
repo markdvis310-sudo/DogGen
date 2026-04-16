@@ -6,22 +6,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <meta name="description" content="Spin the wheel and generate dog names by size! Cute, Strong, Funny names filtered for Small, Medium, or Large dogs. Interactive spin wheel with elimination mode.">
   <meta name="google-adsense-account" content="ca-pub-5050545176887516">
-  <title>Dog Name Generator + Spin Wheel | Size-Matched Puppy Picker</title>
-  <!-- Google Fonts: Poppins (only external resource, no local files) -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <title>Dog Name Generator + Spin Wheel | Professional Puppy Picker</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
   <style>
-    /* ========== ALL STYLES INLINE - NO EXTERNAL CSS FILES ========== */
+    /* ========== PROFESSIONAL NEUTRAL COLOR PALETTE ========== */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     }
 
     body {
-      background: linear-gradient(135deg, #fff5e6 0%, #ffe0c4 100%);
+      background: #F5F7FA;
       min-height: 100vh;
-      padding: 20px;
+      padding: 24px;
     }
 
     .app-container {
@@ -30,15 +29,15 @@
       position: relative;
     }
 
-    /* Header */
+    /* Header - professional navy */
     .main-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: linear-gradient(95deg, #FF9F4A, #FF7E33);
-      padding: 1rem 2rem;
-      border-radius: 60px;
-      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+      background: #1E293B;
+      padding: 0.9rem 2rem;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
       margin-bottom: 2rem;
       flex-wrap: wrap;
     }
@@ -49,75 +48,146 @@
       gap: 12px;
     }
 
-    .paw-icon { font-size: 2.2rem; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2)); }
-    .main-header h1 { font-size: 1.6rem; font-weight: 800; color: white; text-shadow: 2px 2px 0 #c95f0e; }
+    .paw-icon { font-size: 1.8rem; filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1)); }
+    .main-header h1 { font-size: 1.4rem; font-weight: 600; color: #F8FAFC; letter-spacing: -0.3px; }
     .menu-btn {
-      background: #FFEAA7; border: none; font-size: 1.8rem; padding: 0.4rem 1rem; border-radius: 50px;
-      font-weight: bold; cursor: pointer; transition: all 0.2s; color: #D2691E;
+      background: #334155; border: none; font-size: 1.4rem; padding: 0.4rem 1.2rem; border-radius: 40px;
+      font-weight: 500; cursor: pointer; transition: all 0.2s; color: #F1F5F9;
     }
-    .menu-btn:hover { transform: scale(1.03); background: #FFF3C9; }
+    .menu-btn:hover { background: #475569; }
 
     /* Side Menu */
     .side-menu {
       position: fixed; top: 0; right: -380px; width: 320px; height: 100%;
-      background: #FFF7E8; box-shadow: -5px 0 25px rgba(0,0,0,0.2); z-index: 1100;
+      background: #FFFFFF; box-shadow: -8px 0 24px rgba(0,0,0,0.12); z-index: 1100;
       transition: right 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1); padding: 2rem 1.5rem;
-      border-radius: 30px 0 0 30px; display: flex; flex-direction: column; overflow-y: auto;
+      border-radius: 24px 0 0 24px; display: flex; flex-direction: column; overflow-y: auto;
     }
     .side-menu.open { right: 0; }
-    .side-menu-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #FFB347; padding-bottom: 10px; margin-bottom: 25px; }
-    .side-menu-header h3 { font-size: 1.7rem; color: #FF8C42; }
-    .close-menu { background: none; border: none; font-size: 2rem; cursor: pointer; color: #FF8C42; }
-    .menu-links { display: flex; flex-direction: column; gap: 15px; }
-    .menu-links a { font-size: 1.1rem; text-decoration: none; background: #FFE0B5; padding: 10px 18px; border-radius: 40px; color: #B45F1B; font-weight: 600; transition: 0.2s; text-align: center; cursor: pointer; }
-    .menu-links a:hover { background: #FFB347; color: white; transform: translateX(5px); }
-    .menu-footer { margin-top: auto; padding-top: 30px; font-size: 0.85rem; color: #c9772e; text-align: center; }
-    .menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); backdrop-filter: blur(2px); z-index: 1050; display: none; }
+    .side-menu-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #E2E8F0; padding-bottom: 12px; margin-bottom: 24px; }
+    .side-menu-header h3 { font-size: 1.4rem; color: #1E293B; font-weight: 600; }
+    .close-menu { background: none; border: none; font-size: 1.8rem; cursor: pointer; color: #64748B; }
+    .menu-links { display: flex; flex-direction: column; gap: 10px; }
+    .menu-links a { font-size: 0.95rem; text-decoration: none; background: #F1F5F9; padding: 10px 18px; border-radius: 12px; color: #334155; font-weight: 500; transition: 0.2s; text-align: left; cursor: pointer; }
+    .menu-links a:hover { background: #E2E8F0; color: #0F172A; transform: translateX(4px); }
+    .menu-footer { margin-top: auto; padding-top: 30px; font-size: 0.75rem; color: #94A3B8; text-align: center; border-top: 1px solid #E2E8F0; margin-top: 20px; }
+    .menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); backdrop-filter: blur(2px); z-index: 1050; display: none; }
     .menu-overlay.active { display: block; }
 
-    /* Info Panels (Full content pages) */
+    /* Info Panels - clean professional */
     .info-panel {
-      position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.9);
-      width: 90%; max-width: 800px; max-height: 85vh; background: white; border-radius: 48px; padding: 1.8rem;
-      z-index: 1200; box-shadow: 0 30px 40px rgba(0,0,0,0.3); opacity: 0; visibility: hidden;
-      transition: 0.2s ease; background: #FFFCF5; border: 3px solid #FFB347;
+      position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.96);
+      width: 90%; max-width: 760px; max-height: 85vh; background: #FFFFFF; border-radius: 28px; padding: 1.8rem;
+      z-index: 1200; box-shadow: 0 24px 48px rgba(0,0,0,0.2); opacity: 0; visibility: hidden;
+      transition: 0.2s ease; border: 1px solid #E2E8F0;
       overflow-y: auto;
     }
     .info-panel.open-panel { opacity: 1; visibility: visible; transform: translate(-50%, -50%) scale(1); }
-    .info-panel h3 { font-size: 1.8rem; color: #E67E22; margin-bottom: 1rem; border-bottom: 2px solid #FFD966; display: inline-block; }
-    .info-panel h4 { font-size: 1.3rem; margin: 1.2rem 0 0.5rem; color: #b45f2b; }
-    .info-panel p, .info-panel li { color: #5a3a1a; line-height: 1.5; margin-bottom: 0.5rem; }
+    .info-panel h3 { font-size: 1.5rem; color: #1E293B; margin-bottom: 1rem; border-bottom: 2px solid #CBD5E1; display: inline-block; font-weight: 600; }
+    .info-panel h4 { font-size: 1.1rem; margin: 1.2rem 0 0.5rem; color: #475569; font-weight: 600; }
+    .info-panel p, .info-panel li { color: #334155; line-height: 1.5; margin-bottom: 0.5rem; font-size: 0.9rem; }
     .info-panel ul { padding-left: 1.5rem; margin: 0.5rem 0 1rem; }
     .info-panel .name-list-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
-    .info-panel .name-badge { background: #FFE0B5; padding: 4px 14px; border-radius: 40px; font-size: 0.85rem; color: #7b3f00; }
-    .close-info { background: #FFB347; border: none; padding: 8px 20px; border-radius: 40px; font-weight: bold; cursor: pointer; margin-top: 1rem; display: block; margin-left: auto; }
+    .info-panel .name-badge { background: #F1F5F9; padding: 4px 14px; border-radius: 30px; font-size: 0.8rem; color: #1E293B; font-weight: 500; }
+    .close-info { background: #E2E8F0; border: none; padding: 8px 20px; border-radius: 40px; font-weight: 500; cursor: pointer; margin-top: 1rem; display: block; margin-left: auto; color: #1E293B; transition: 0.2s; }
+    .close-info:hover { background: #CBD5E1; }
 
     /* Generator Card */
-    .generator-card { background: #FFFEF7; border-radius: 48px; padding: 1.8rem; margin-bottom: 2rem; box-shadow: 0 20px 35px rgba(251, 161, 59, 0.2); }
+    .generator-card { background: #FFFFFF; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; box-shadow: 0 4px 16px rgba(0,0,0,0.04); border: 1px solid #E9EEF3; }
     .card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 1rem; flex-wrap: wrap; }
-    .emoji-badge { font-size: 2rem; }
-    .size-filter { display: flex; gap: 15px; margin: 15px 0 20px; flex-wrap: wrap; }
-    .size-btn { background: #F7E5C2; border: none; padding: 8px 20px; border-radius: 60px; font-weight: 600; cursor: pointer; transition: 0.2s; color: #8B5A2B; }
-    .size-btn.active { background: #FF9F4A; color: white; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-    .btn { border: none; padding: 12px 28px; font-size: 1.1rem; font-weight: 700; border-radius: 60px; cursor: pointer; transition: 0.2s; box-shadow: 0 6px 0 rgba(0,0,0,0.1); }
-    .btn-primary { background: #6CC24A; color: white; box-shadow: 0 6px 0 #2F6B1F; margin-bottom: 1.5rem; }
-    .btn-primary:hover { transform: translateY(-2px); background: #7FD65A; }
-    .names-grid { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-top: 15px; min-height: 100px; }
-    .name-card { background: linear-gradient(135deg, #FFF2D7, #FFE4B5); border-radius: 80px; padding: 8px 24px; font-weight: 600; font-size: 1.1rem; box-shadow: 0 5px 12px rgba(0,0,0,0.08); color: #8B4513; border-left: 5px solid #FFB347; }
+    .emoji-badge { font-size: 1.8rem; }
+    .card-header h2 { font-size: 1.3rem; font-weight: 600; color: #1E293B; letter-spacing: -0.2px; }
+    .size-filter { display: flex; gap: 12px; margin: 15px 0 20px; flex-wrap: wrap; }
+    .size-btn { background: #F1F5F9; border: 1px solid #E2E8F0; padding: 8px 20px; border-radius: 40px; font-weight: 500; cursor: pointer; transition: 0.2s; color: #475569; font-size: 0.9rem; }
+    .size-btn.active { background: #3B82F6; border-color: #3B82F6; color: white; box-shadow: 0 2px 8px rgba(59,130,246,0.2); }
+    .size-btn:hover:not(.active) { background: #E2E8F0; }
+    .btn { border: none; padding: 10px 24px; font-size: 0.9rem; font-weight: 500; border-radius: 40px; cursor: pointer; transition: 0.2s; }
+    .btn-primary { background: #10B981; color: white; margin-bottom: 1.5rem; box-shadow: 0 2px 6px rgba(16,185,129,0.2); }
+    .btn-primary:hover { background: #059669; transform: translateY(-1px); }
+    .names-grid { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 15px; min-height: 80px; }
+    .name-card { background: #F8FAFC; border-radius: 40px; padding: 6px 22px; font-weight: 500; font-size: 0.95rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05); color: #1E293B; border-left: 3px solid #3B82F6; }
 
     /* Wheel Section */
-    .wheel-section { background: #FFF2DF; border-radius: 56px; padding: 2rem 1rem; text-align: center; box-shadow: 0 18px 30px rgba(0,0,0,0.1); }
+    .wheel-section { background: #FFFFFF; border-radius: 28px; padding: 2rem 1rem; text-align: center; box-shadow: 0 4px 16px rgba(0,0,0,0.04); border: 1px solid #E9EEF3; margin-bottom: 2rem; }
     .wheel-container { position: relative; display: flex; justify-content: center; margin-bottom: 20px; }
-    .wheel-canvas { max-width: 90%; height: auto; border-radius: 50%; box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2); background: #FFE3B5; cursor: pointer; }
-    .wheel-pointer { position: absolute; top: -25px; font-size: 3rem; left: 50%; transform: translateX(-50%); filter: drop-shadow(2px 8px 8px rgba(0,0,0,0.2)); pointer-events: none; }
-    .wheel-controls { display: flex; gap: 20px; justify-content: center; margin: 20px 0; flex-wrap: wrap; }
-    .btn-spin { background: #FF9F4A; color: white; box-shadow: 0 6px 0 #b95f1a; }
-    .btn-reset { background: #56B4E9; color: white; box-shadow: 0 6px 0 #1f6390; }
-    .elimination-status { background: #FFF1C1; display: inline-block; padding: 8px 24px; border-radius: 60px; font-weight: bold; color: #D9791E; margin: 10px auto; }
-    .winner-message { font-size: 1.5rem; font-weight: 800; margin-top: 15px; color: #D35400; background: #FFF0B5; border-radius: 50px; padding: 12px; }
-    .main-footer { text-align: center; margin-top: 2.5rem; padding: 1rem; color: #B97F3B; }
-    @media (max-width: 680px) { .main-header h1 { font-size: 1.2rem; } .btn { padding: 8px 18px; } }
-    button:disabled { opacity: 0.5; cursor: not-allowed; }
+    .wheel-canvas { max-width: 90%; height: auto; border-radius: 50%; box-shadow: 0 8px 24px rgba(0,0,0,0.12); background: #F1F5F9; cursor: pointer; }
+    .wheel-pointer { position: absolute; top: -25px; font-size: 2.5rem; left: 50%; transform: translateX(-50%); filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1)); pointer-events: none; }
+    .wheel-controls { display: flex; gap: 16px; justify-content: center; margin: 20px 0; flex-wrap: wrap; }
+    .btn-spin { background: #3B82F6; color: white; box-shadow: 0 2px 6px rgba(59,130,246,0.3); }
+    .btn-spin:hover { background: #2563EB; }
+    .btn-reset { background: #64748B; color: white; box-shadow: 0 2px 6px rgba(100,116,139,0.2); }
+    .btn-reset:hover { background: #475569; }
+    .elimination-status { background: #F1F5F9; display: inline-block; padding: 6px 20px; border-radius: 40px; font-weight: 500; color: #1E293B; margin: 10px auto; font-size: 0.85rem; }
+    .winner-message { font-size: 1.2rem; font-weight: 600; margin-top: 15px; color: #0F172A; background: #EFF6FF; border-radius: 40px; padding: 10px; }
+    .main-footer { text-align: center; margin-top: 1.5rem; padding: 1rem; color: #94A3B8; font-size: 0.8rem; border-top: 1px solid #E2E8F0; }
+    
+    /* FAQ Section - professional */
+    .faq-section {
+      background: #FFFFFF;
+      border-radius: 28px;
+      margin-top: 1.5rem;
+      padding: 1.8rem;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+      border: 1px solid #E9EEF3;
+    }
+    .faq-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid #E2E8F0;
+      padding-bottom: 0.75rem;
+    }
+    .faq-header span { font-size: 1.6rem; }
+    .faq-header h2 { font-size: 1.3rem; color: #1E293B; font-weight: 600; letter-spacing: -0.2px; }
+    .faq-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .faq-item {
+      background: #F8FAFC;
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all 0.2s;
+      border: 1px solid #E9EEF3;
+    }
+    .faq-question {
+      background: #FFFFFF;
+      padding: 1rem 1.5rem;
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: #1E293B;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: 0.2s;
+      border-radius: 20px;
+    }
+    .faq-question:hover { background: #F1F5F9; }
+    .faq-question .icon { font-size: 1.3rem; transition: transform 0.2s; color: #64748B; font-weight: 400; }
+    .faq-answer {
+      max-height: 0;
+      padding: 0 1.5rem;
+      overflow: hidden;
+      transition: max-height 0.35s ease-out, padding 0.2s;
+      background: #F8FAFC;
+      color: #475569;
+      line-height: 1.5;
+      border-radius: 0 0 20px 20px;
+      font-size: 0.85rem;
+    }
+    .faq-item.active .faq-answer {
+      max-height: 280px;
+      padding: 0.75rem 1.5rem 1.2rem 1.5rem;
+    }
+    .faq-item.active .faq-question .icon {
+      transform: rotate(45deg);
+    }
+    @media (max-width: 680px) { .main-header h1 { font-size: 1rem; } .btn { padding: 6px 16px; } .faq-header h2 { font-size: 1.2rem; } }
+    button:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+    .placeholder-text { color: #94A3B8; font-size: 0.9rem; padding: 12px; text-align: center; }
   </style>
 </head>
 <body>
@@ -140,73 +210,19 @@
       <a data-panel="contact">📧 Contact & Support</a>
       <a data-panel="about">🎉 About Game</a>
     </div>
-    <div class="menu-footer"><p>🐶 Filter by dog size!<br>Elimination mode active.</p><p style="font-size:0.7rem;">© DogNameWheel 2025</p></div>
+    <div class="menu-footer"><p>Filter by dog size • Elimination mode</p><p style="font-size:0.7rem;">© DogNameWheel 2025</p></div>
   </div>
   <div id="menuOverlay" class="menu-overlay"></div>
 
-  <!-- ========== CONTENT PANELS (All inline, no external files) ========== -->
-  <div id="cuteNamesPanel" class="info-panel">
-    <h3>🐶 100+ Cute Dog Names</h3>
-    <p>From tiny fluffballs to gentle giants, these adorable names will make your heart melt. Perfect for pups with sweet personalities, floppy ears, and wagging tails. Each name carries a loving vibe that suits the most affectionate companions.</p>
-    <h4>🍭 Sweet Treat Inspired Names</h4>
-    <div class="name-list-grid"><span class="name-badge">Mochi</span><span class="name-badge">Biscuit</span><span class="name-badge">Cupcake</span><span class="name-badge">Waffles</span><span class="name-badge">Pudding</span><span class="name-badge">Cookie</span><span class="name-badge">Cannoli</span><span class="name-badge">Donut</span><span class="name-badge">Honey</span><span class="name-badge">Maple</span><span class="name-badge">Sugar</span><span class="name-badge">Cinnamon</span><span class="name-badge">Toffee</span><span class="name-badge">Gingersnap</span><span class="name-badge">Muffin</span></div>
-    <h4>🌸 Nature & Flower Cuties</h4>
-    <div class="name-list-grid"><span class="name-badge">Daisy</span><span class="name-badge">Lily</span><span class="name-badge">Rose</span><span class="name-badge">Poppy</span><span class="name-badge">Clover</span><span class="name-badge">Ivy</span><span class="name-badge">Willow</span><span class="name-badge">Hazel</span><span class="name-badge">Sunny</span><span class="name-badge">Rain</span><span class="name-badge">Luna</span><span class="name-badge">Stella</span><span class="name-badge">Aurora</span><span class="name-badge">Sky</span><span class="name-badge">Coral</span></div>
-    <h4>🧸 Plush Toy Names</h4>
-    <div class="name-list-grid"><span class="name-badge">Teddy</span><span class="name-badge">Buttons</span><span class="name-badge">Peanut</span><span class="name-badge">Pip</span><span class="name-badge">Ziggy</span><span class="name-badge">Noodle</span><span class="name-badge">Pixie</span><span class="name-badge">Tinker</span><span class="name-badge">Jelly</span><span class="name-badge">Bean</span><span class="name-badge">Momo</span><span class="name-badge">Bao</span><span class="name-badge">Chibi</span><span class="name-badge">Kiko</span></div>
-    <h4>🐣 Tiny & Teeny Names</h4>
-    <div class="name-list-grid"><span class="name-badge">Tiny</span><span class="name-badge">Pebbles</span><span class="name-badge">Bitty</span><span class="name-badge">Mini</span><span class="name-badge">Itsy</span><span class="name-badge">Dot</span><span class="name-badge">Flea</span><span class="name-badge">Little</span><span class="name-badge">Tater Tot</span><span class="name-badge">Nugget</span><span class="name-badge">Crumb</span><span class="name-badge">Thumbelina</span><span class="name-badge">Weezy</span></div>
-    <p><strong>✨ More adorable picks:</strong> Coco, Bambi, Petal, Misty, Marble, Sprinkles, Tofu, Sesame, Cheerio, Dumpling, Kiwi, Mango, Peach, Cherry, Blossom, Fawn, Meadow, Breeze, Sparkle, Glimmer, Twinkle, Cupid, Snuggles, Cuddles, Wiggles, Puddles, Marshmallow, Coconut, Latte, Frappe, Meringue, Macaron, Éclair, Truffle, Nougat, Fudge, Caramel, Butterscotch, Peaches, Plum, Honeydew, Lavender, Sage, Basil, Fern, Juniper, Clementine, Tangerine, Papaya, Guava, Lychee, Fig, Olive, Pickle, Radish, Turnip, Pumpkin, Squash, Zucchini, Pea, Bean, Sprout, Alfalfa, Petunia, Tulip, Violet, Orchid, Jasmine, Dahlia, Zinnia, Azalea, Camellia, Magnolia, Iris, Wisteria, Bluebell, Buttercup, Dandelion, Marigold, Primrose, Hyacinth, Amaryllis, Anemone, Begonia, Calendula, Chrysanthemum, Edelweiss, Freesia, Gardenia, Gladiolus, Heather, Hollyhock, Lilac, Lotus, Oleander, Peony, Phlox, Rhododendron, Snapdragon, Sunflower, Sweetpea, Yarrow. This extensive list ensures you'll find the sweetest name for your furry friend, with over 150 unique cute names spanning sweet treats, flowers, and cozy vibes.</p>
-    <button class="close-info">Close</button>
-  </div>
-
-  <div id="breedNamesPanel" class="info-panel">
-    <h3>🐕 Best Dog Names by Breed</h3>
-    <p>Choosing a name that matches your dog's breed heritage, appearance, and personality makes the bond even stronger. Below are curated name suggestions for popular breeds, combining traditional, cultural, and modern options.</p>
-    <h4>🇩🇪 German Shepherd & Rottweiler</h4>
-    <div class="name-list-grid"><span class="name-badge">Kaiser</span><span class="name-badge">Greta</span><span class="name-badge">Bruno</span><span class="name-badge">Zelda</span><span class="name-badge">Otto</span><span class="name-badge">Freya</span><span class="name-badge">Gunnar</span><span class="name-badge">Heidi</span><span class="name-badge">Diesel</span><span class="name-badge">Thor</span><span class="name-badge">Atlas</span><span class="name-badge">Valkyrie</span></div>
-    <h4>🇫🇷 French Bulldog & Poodle</h4>
-    <div class="name-list-grid"><span class="name-badge">Pierre</span><span class="name-badge">Coco</span><span class="name-badge">Gigi</span><span class="name-badge">Louis</span><span class="name-badge">Fifi</span><span class="name-badge">Chanel</span><span class="name-badge">Dior</span><span class="name-badge">Amélie</span><span class="name-badge">Baguette</span><span class="name-badge">Bijou</span><span class="name-badge">Marcel</span><span class="name-badge">Remy</span></div>
-    <h4>🏴󠁧󠁢󠁥󠁮󠁧󠁿 Golden Retriever & Labrador</h4>
-    <div class="name-list-grid"><span class="name-badge">Bailey</span><span class="name-badge">Charlie</span><span class="name-badge">Cooper</span><span class="name-badge">Duke</span><span class="name-badge">Murphy</span><span class="name-badge">Sadie</span><span class="name-badge">Molly</span><span class="name-badge">Tucker</span><span class="name-badge">Buster</span><span class="name-badge">Gus</span><span class="name-badge">Marley</span><span class="name-badge">Rosie</span></div>
-    <h4>🇮🇹 Italian Greyhound & Mastiff</h4>
-    <div class="name-list-grid"><span class="name-badge">Romeo</span><span class="name-badge">Giulietta</span><span class="name-badge">Enzo</span><span class="name-badge">Bella</span><span class="name-badge">Dante</span><span class="name-badge">Luna</span><span class="name-badge">Capri</span><span class="name-badge">Toscana</span><span class="name-badge">Vino</span><span class="name-badge">Pasta</span><span class="name-badge">Gelato</span></div>
-    <h4>🇯🇵 Shiba Inu & Akita</h4>
-    <div class="name-list-grid"><span class="name-badge">Hiro</span><span class="name-badge">Suki</span><span class="name-badge">Kuma</span><span class="name-badge">Yuki</span><span class="name-badge">Sake</span><span class="name-badge">Kenji</span><span class="name-badge">Hana</span><span class="name-badge">Rin</span><span class="name-badge">Kai</span></div>
-    <p><strong>➕ Additional breed-specific suggestions (over 200 curated names):</strong> For Huskies: Nanook, Tundra, Yeti, Glacier, Aurora, Timber, Kodiak. For Dachshunds: Wiener, Schnitzel, Pretzel, Oscar, Frankie, Peanut, Dash. For Chihuahuas: Taco, Chili, Queso, Nacho, Chico, Lola, Paco. For Boxers: Rocky, Tyson, Ali, Apollo, Rocco, Buster. For Corgis: Ein, Waffle, Pancake, Butter, Gizmo, Sprout. For Great Danes: Titan, Goliath, Moose, Tank, Brutus, Samson, Yeti. This guide includes more than 350 breed-relevant names, ensuring you discover a name that celebrates your dog's unique lineage.</p>
-    <button class="close-info">Close</button>
-  </div>
-
-  <div id="funnyNamesPanel" class="info-panel">
-    <h3>😂 Funny Dog Names List</h3>
-    <p>Hilarious, quirky, and downright silly names that will make everyone smile. Perfect for dogs with goofy personalities, funny habits, or just to add some humor to the dog park.</p>
-    <h4>🍔 Food Puns & Goofy Eats</h4>
-    <div class="name-list-grid"><span class="name-badge">Pickles</span><span class="name-badge">Nacho</span><span class="name-badge">Burrito</span><span class="name-badge">Waffles</span><span class="name-badge">Meatball</span><span class="name-badge">Noodle</span><span class="name-badge">Tofu</span><span class="name-badge">Kimchi</span><span class="name-badge">Sriracha</span><span class="name-badge">Pancake</span></div>
-    <h4>👑 Silly Titles & Royal Jesters</h4>
-    <div class="name-list-grid"><span class="name-badge">Sir Barksalot</span><span class="name-badge">Princess Fluffybutt</span><span class="name-badge">Lord Droolington</span><span class="name-badge">Duke of Wiggles</span><span class="name-badge">Baron Von Sniff</span><span class="name-badge">Count Cuddles</span><span class="name-badge">King Snort</span></div>
-    <h4>🦸‍♂️ Pop Culture Mashups</h4>
-    <div class="name-list-grid"><span class="name-badge">Chewbacca</span><span class="name-badge">Darth Vader</span><span class="name-badge">Paw McCartney</span><span class="name-badge">Indiana Bones</span><span class="name-badge">Bark Twain</span><span class="name-badge">Fuzz Aldrin</span><span class="name-badge">Doggy Parton</span><span class="name-badge">Snarls Barkley</span></div>
-    <p><strong>😂 Even more laugh-out-loud names:</strong> Bark Obama, Chewbarka, Hairy Paw-ter, Wagsta, Fur-guson, Droolius Caesar, Barkimedes, Yoda, Jabba the Hutt, Puggsley, Wiggum, Snuffleupagus, Beaker, Gonzo, Zoot, Beep, Boop, Zip, Zap, Bloop, Snorkel, Puddle, Pants, Trousers, Flipflop, Tater Tot, Crouton, Goulash, Spatula, Toaster, Ketchup, Mustard, Relish, Pickleback, Crunch, Munch, Squish, Boing, Zoom, Kaboom, Popcorn, Jellybean, Lollipop, Gumdrop, Twizzler, Skittle, Taffy, Snorlax, Magikarp, Trubbish, Slurpuff, Ditto, Pikachu, Eevee, Zigzagoon, Rockruff, Yamper, Growlithe. This massive collection features over 250 funny names, ensuring every chuckle-worthy pup gets a moniker that sparks joy and laughter.</p>
-    <button class="close-info">Close</button>
-  </div>
-
-  <div id="uniqueNamesPanel" class="info-panel">
-    <h3>✨ Unique Dog Names You Haven't Heard</h3>
-    <p>Stand out from the pack with these rare, exotic, and uncommon names. Inspired by mythology, distant lands, forgotten words, and creative twists — perfect for the dog that's one of a kind.</p>
-    <h4>🌙 Mythological & Celestial Rarities</h4>
-    <div class="name-list-grid"><span class="name-badge">Calypso</span><span class="name-badge">Orion</span><span class="name-badge">Lyra</span><span class="name-badge">Cassiopeia</span><span class="name-badge">Atlas</span><span class="name-badge">Selene</span><span class="name-badge">Apollon</span><span class="name-badge">Boreas</span><span class="name-badge">Zephyr</span><span class="name-badge">Eurydice</span><span class="name-badge">Persephone</span><span class="name-badge">Odysseus</span></div>
-    <h4>🗺️ Forgotten Vintage Gems</h4>
-    <div class="name-list-grid"><span class="name-badge">Alistair</span><span class="name-badge">Beatrix</span><span class="name-badge">Caspian</span><span class="name-badge">Dulcinea</span><span class="name-badge">Elara</span><span class="name-badge">Fenimore</span><span class="name-badge">Gulliver</span><span class="name-badge">Hesper</span><span class="name-badge">Isolde</span><span class="name-badge">Jericho</span><span class="name-badge">Kael</span><span class="name-badge">Lysander</span></div>
-    <h4>🌍 Words from Around the World</h4>
-    <div class="name-list-grid"><span class="name-badge">Satu (Finnish)</span><span class="name-badge">Nuri (Korean)</span><span class="name-badge">Zorion (Basque)</span><span class="name-badge">Tindra (Swedish)</span><span class="name-badge">Kaimana (Hawaiian)</span><span class="name-badge">Nahla (Arabic)</span></div>
-    <p><strong>🌟 Deep dive into rare names (over 300 unique suggestions):</strong> Antheia, Briseis, Damara, Evadne, Fiammetta, Galatea, Ianthe, Jocasta, Kore, Leda, Maia, Nephele, Oenone, Phaedra, Rhea, Semele, Theia, Undine, Vesta, Xanthe, Ygraine, Zillah, Aelwen, Branwen, Ceridwen, Delwen, Eirlys, Gwendolyn, Hafwen, Iola, Llinos, Mair, Nia, Olwen, Rhiannon, Sian, Tegan, Wynne, Aerona, Briallen, Carys, Deryn, Eira, Ffion, Heledd, Lowri, Mari, Nerys, Seren, Teleri, Alcmene, Danae, Elektra, Io, Kallisto, Leto, Maera, Nyctimene, Otrera, Pasiphae, Rhode, Uraeus, Vasiliki, Xenia, Yolanda, Zenobia. These names are deliberately uncommon, drawing from obscure mythology, rare flora, forgotten saints, and linguistic treasures. With this collection exceeding 400 names, your dog will undoubtedly have a name that sparks curiosity.</p>
-    <button class="close-info">Close</button>
-  </div>
-
-  <div id="privacyPanel" class="info-panel"><h3>🔒 Privacy Policy</h3><p>Last updated: April 2025. This app uses <strong>localStorage</strong> to save your generated dog names and game progress. No personal data is sent to any server. No cookies for tracking.</p><p><strong>Data Collection:</strong> None. All data stays on your device.</p><p><strong>Third-Party:</strong> No analytics or ads scripts.</p><button class="close-info">Got it</button></div>
-  <div id="termsPanel" class="info-panel"><h3>📜 Terms of Service</h3><p>By using this Dog Name Generator & Spin Wheel, you agree to: Entertainment use only. Not for automated cheating. Elimination Mode is for fun. We are not liable for decisions made using generated names.</p><button class="close-info">Accept</button></div>
-  <div id="contactPanel" class="info-panel"><h3>📧 Contact & Support</h3><p>🐕 Email: <strong>supportentry1@gmail.com</strong></p><p>We welcome your feedback, questions, and suggestions. Feel free to reach out anytime and we will get back to you as soon as possible.</p><button class="close-info">Close</button></div>
-  <div id="aboutPanel" class="info-panel"><h3>🎉 About the Game</h3><p>Ultimate Dog Name Generator + Spin Wheel! Choose dog size, generate names, spin to eliminate until one champion remains. Features: Categories, confetti, local storage.</p><button class="close-info">Let's Play!</button></div>
+  <!-- Info Panels -->
+  <div id="cuteNamesPanel" class="info-panel"><h3>🐶 100+ Cute Dog Names</h3><p>Adorable names perfect for sweet companions.</p><div class="name-list-grid"><span class="name-badge">Mochi</span><span class="name-badge">Biscuit</span><span class="name-badge">Cupcake</span><span class="name-badge">Daisy</span><span class="name-badge">Luna</span><span class="name-badge">Teddy</span><span class="name-badge">Willow</span><span class="name-badge">Hazel</span><span class="name-badge">Pippin</span><span class="name-badge">Maple</span></div><button class="close-info">Close</button></div>
+  <div id="breedNamesPanel" class="info-panel"><h3>🐕 Best Dog Names by Breed</h3><p>Curated names for German Shepherds, Frenchies, Labs, Shibas, and more.</p><div class="name-list-grid"><span class="name-badge">Kaiser</span><span class="name-badge">Pierre</span><span class="name-badge">Bailey</span><span class="name-badge">Hiro</span><span class="name-badge">Bruno</span><span class="name-badge">Coco</span><span class="name-badge">Charlie</span><span class="name-badge">Suki</span></div><button class="close-info">Close</button></div>
+  <div id="funnyNamesPanel" class="info-panel"><h3>😂 Funny Dog Names List</h3><p>Hilarious and quirky names to bring smiles.</p><div class="name-list-grid"><span class="name-badge">Pickles</span><span class="name-badge">Sir Barksalot</span><span class="name-badge">Nacho</span><span class="name-badge">Waffles</span><span class="name-badge">Bark Twain</span><span class="name-badge">Meatball</span><span class="name-badge">Noodle</span></div><button class="close-info">Close</button></div>
+  <div id="uniqueNamesPanel" class="info-panel"><h3>✨ Unique Dog Names</h3><p>Rare, mythological, and international names.</p><div class="name-list-grid"><span class="name-badge">Calypso</span><span class="name-badge">Orion</span><span class="name-badge">Zephyr</span><span class="name-badge">Lyra</span><span class="name-badge">Caspian</span><span class="name-badge">Selene</span></div><button class="close-info">Close</button></div>
+  <div id="privacyPanel" class="info-panel"><h3>🔒 Privacy Policy</h3><p>No personal data collected. LocalStorage only for saving your game progress. No third-party tracking.</p><button class="close-info">Close</button></div>
+  <div id="termsPanel" class="info-panel"><h3>📜 Terms of Service</h3><p>For entertainment purposes only. All generated names are suggestions.</p><button class="close-info">Close</button></div>
+  <div id="contactPanel" class="info-panel"><h3>📧 Contact & Support</h3><p>Email: <strong>supportentry1@gmail.com</strong><br>We welcome feedback and suggestions!</p><button class="close-info">Close</button></div>
+  <div id="aboutPanel" class="info-panel"><h3>🎉 About the Game</h3><p>Size-based name generator + elimination spin wheel. Save progress automatically.</p><button class="close-info">Close</button></div>
 
   <main>
     <section class="generator-card">
@@ -217,22 +233,59 @@
         <button data-size="large" class="size-btn">🐺 Large Dogs</button>
       </div>
       <button id="generateNamesBtn" class="btn btn-primary">✨ Generate Names ✨</button>
-      <div class="names-grid" id="namesGrid"><div class="placeholder-text">Pick a size & click Generate!</div></div>
+      <div class="names-grid" id="namesGrid"><div class="placeholder-text">Select a size & click Generate</div></div>
     </section>
 
     <section class="wheel-section">
       <div class="wheel-container"><canvas id="wheelCanvas" width="500" height="500" class="wheel-canvas"></canvas><div class="wheel-pointer">👇</div></div>
-      <div class="wheel-controls"><button id="spinWheelBtn" class="btn btn-spin" disabled>🎡 Spin Wheel 🎡</button><button id="resetGameBtn" class="btn btn-reset">🔄 Reset Game</button></div>
-      <div class="elimination-status">🎯 Elimination Mode: <span id="namesRemainingCount">0</span> names left</div>
+      <div class="wheel-controls"><button id="spinWheelBtn" class="btn btn-spin" disabled>🎡 Spin Wheel</button><button id="resetGameBtn" class="btn btn-reset">⟳ Reset Game</button></div>
+      <div class="elimination-status">🎯 Elimination Mode: <span id="namesRemainingCount">0</span> names remaining</div>
       <div id="winnerMessage" class="winner-message"></div>
     </section>
+    
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <div class="faq-header">
+        <span>📋</span>
+        <h2>Frequently Asked Questions</h2>
+      </div>
+      <div class="faq-grid" id="faqContainer">
+        <div class="faq-item">
+          <div class="faq-question">How does the dog name generator work by size? <span class="icon">+</span></div>
+          <div class="faq-answer">Select Small, Medium, or Large, then click "Generate Names". The system pulls from curated lists of cute, strong, and funny names tailored for each size — tiny names like "Pip" for small breeds, sturdy names like "Titan" for large dogs.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">What is Elimination Mode on the spin wheel? <span class="icon">+</span></div>
+          <div class="faq-answer">Each spin removes the name the pointer lands on. Continue spinning until only one champion name remains — a fun way to narrow down your favorite dog name!</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Does the website save my progress? <span class="icon">+</span></div>
+          <div class="faq-answer">Yes! Your current name list, elimination progress, and selected size are saved automatically to your browser's local storage. Close and return later — everything picks up where you left off.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Are these names suitable for any breed? <span class="icon">+</span></div>
+          <div class="faq-answer">Absolutely. The size filter ensures the name fits your dog's physical traits, while the breed-specific section in the menu provides cultural and traditional names for German Shepherds, French Bulldogs, Shibas, and many more.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Why can't I spin the wheel sometimes? <span class="icon">+</span></div>
+          <div class="faq-answer">The spin button is disabled when only 1 name remains (the winner) or if no names exist. Click "Generate Names" for a fresh list or "Reset Game" to restore the current names.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Is my personal data collected? <span class="icon">+</span></div>
+          <div class="faq-answer">No data is sent to any server. We use no tracking cookies, no analytics, and no external scripts beyond fonts. Your privacy is fully protected — see Privacy Policy in the menu.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">How can I suggest new names or report issues? <span class="icon">+</span></div>
+          <div class="faq-answer">Use the "Contact & Support" option in the menu. Email supportentry1@gmail.com with your suggestions or feedback — we regularly update name lists based on user input!</div>
+        </div>
+      </div>
+    </section>
   </main>
-  <footer class="main-footer"><p>🐶 Filter by size — names tailored for small, medium & large pups!</p></footer>
+  <footer class="main-footer"><p>Size-matched dog names • Spin elimination game • Auto-save progress</p></footer>
 </div>
 <canvas id="confettiCanvas" style="position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:2000;"></canvas>
 
 <script>
-  // ================== ALL JAVASCRIPT INLINE - NO EXTERNAL FILES ==================
   (function(){
     const NAMES_BY_SIZE = {
       small: { cute: ["Pip", "Tiny", "Mochi", "Peanut", "Cupcake", "Button", "Biscuit", "Nugget", "Pixie", "Waffle"], strong: ["Rocket", "Blitz", "Spike", "Rascal", "Turbo", "Ziggy", "Ace", "Jax", "Koda", "Rex"], funny: ["Sir Yapsalot", "Noodle", "Pickle", "Flea", "Pocket", "Jellybean", "Barkley", "Wiggles", "Chewbacca", "Dinky"] },
@@ -265,8 +318,8 @@
     function startConfetti() {
       confettiActive = true;
       confettiParticles = [];
-      for(let i=0;i<130;i++) {
-        confettiParticles.push({ x: Math.random() * confettiCanvas.width, y: Math.random() * confettiCanvas.height - confettiCanvas.height, size: Math.random() * 8 + 4, color: `hsl(${Math.random() * 360}, 80%, 60%)`, speedY: Math.random() * 6 + 4, speedX: (Math.random() - 0.5) * 3, rotation: Math.random() * 360 });
+      for(let i=0;i<100;i++) {
+        confettiParticles.push({ x: Math.random() * confettiCanvas.width, y: Math.random() * confettiCanvas.height - confettiCanvas.height, size: Math.random() * 6 + 3, color: `hsl(${Math.random() * 360}, 70%, 60%)`, speedY: Math.random() * 5 + 3, speedX: (Math.random() - 0.5) * 2, rotation: Math.random() * 360 });
       }
       function drawConfetti() {
         if(!confettiActive) return;
@@ -277,7 +330,7 @@
         else confettiActive = false;
       }
       drawConfetti();
-      setTimeout(() => { confettiActive = false; }, 2800);
+      setTimeout(() => { confettiActive = false; }, 2500);
     }
 
     function generateNamesBySize(size) {
@@ -292,15 +345,27 @@
       return selected;
     }
     function displayNameCards(names) { namesGridDiv.innerHTML = ''; if(!names.length){ namesGridDiv.innerHTML = '<div class="placeholder-text">✨ Generate some names!</div>'; return; } names.forEach(name => { let card = document.createElement('div'); card.className = 'name-card'; card.textContent = name; namesGridDiv.appendChild(card); }); }
-    function drawWheel() { if(!canvas || !ctx) return; const sizeDim = canvas.width; const center = sizeDim/2; const radius = sizeDim/2 - 8; const count = currentNameList.length; if(count === 0){ ctx.clearRect(0,0,sizeDim,sizeDim); ctx.font = "bold 18px Poppins"; ctx.fillStyle = "#AD8E6A"; ctx.fillText("No names", center-50, center); return; } const angleStep = (Math.PI * 2) / count; const colors = ["#FFD966","#FFB347","#6CC24A","#56B4E9","#F4A261","#E9C46A","#76B5C5","#F4D03F","#F7C59F","#B2D8A8","#FFB3BA","#C5E0B4"]; ctx.clearRect(0,0,sizeDim,sizeDim); for(let i=0;i<count;i++){ let start = i * angleStep + currentRotation; let end = start + angleStep; ctx.beginPath(); ctx.moveTo(center,center); ctx.arc(center,center,radius,start,end); ctx.fillStyle = colors[i % colors.length]; ctx.fill(); ctx.strokeStyle = "#FFFFFF"; ctx.lineWidth = 2; ctx.stroke(); ctx.save(); ctx.translate(center,center); ctx.rotate(start + angleStep/2); ctx.textAlign = "center"; ctx.textBaseline = "middle"; let textRadius = radius * 0.65; ctx.font = `bold ${Math.max(12, Math.min(18, 380/count))}px Poppins`; ctx.fillStyle = "#3B2A1F"; let shortName = currentNameList[i].length > 12 ? currentNameList[i].slice(0,10)+".." : currentNameList[i]; ctx.fillText(shortName, textRadius, 6); ctx.restore(); } ctx.beginPath(); ctx.arc(center,center,25,0,2*Math.PI); ctx.fillStyle = "#FFF2C9"; ctx.fill(); ctx.fillStyle = "#E67E22"; ctx.font = "bold 20px Poppins"; ctx.fillText("🐕", center-12, center+8); }
-    function updateGameFromNames(namesList, preserveRemaining=true) { if(!preserveRemaining) currentNameList = [...namesList]; else currentNameList = currentNameList.filter(n => namesList.includes(n)); if(currentNameList.length === 0){ spinBtn.disabled = true; remainingSpan.innerText = "0"; winnerMsgDiv.innerHTML = "🏆 No dogs left! Click Reset or Generate 🏆"; drawWheel(); return; } remainingSpan.innerText = currentNameList.length; spinBtn.disabled = (currentNameList.length <= 1 || spinning); if(currentNameList.length === 1){ winnerMsgDiv.innerHTML = `🎉🏆 GRAND WINNER: ${currentNameList[0]}! 🏆🎉`; startConfetti(); spinBtn.disabled = true; } else { winnerMsgDiv.innerHTML = ""; spinBtn.disabled = spinning ? true : false; } drawWheel(); localStorage.setItem('dogWheelNames', JSON.stringify(currentNameList)); localStorage.setItem('dogWheelSize', currentSize); }
-    function eliminateName(selectedName) { let idx = currentNameList.indexOf(selectedName); if(idx !== -1 && currentNameList.length > 1) { currentNameList.splice(idx,1); updateGameFromNames(currentNameList, true); displayNameCards(currentNameList); if(currentNameList.length === 1){ winnerMsgDiv.innerHTML = `🎉🏆 GRAND WINNER: ${currentNameList[0]}! 🏆🎉`; startConfetti(); spinBtn.disabled = true; } else { winnerMsgDiv.innerHTML = `✨ Removed "${selectedName}". ${currentNameList.length} names left. ✨`; } drawWheel(); } else if(currentNameList.length === 1){ winnerMsgDiv.innerHTML = `🏆 CHAMPION: ${currentNameList[0]}! Reset or generate new names. 🏆`; spinBtn.disabled = true; } }
-    function spinWheel() { if(spinning) return; if(currentNameList.length <= 1) { if(currentNameList.length===1) winnerMsgDiv.innerHTML = `Game over! ${currentNameList[0]} is winner. Reset to spin again.`; return; } spinning = true; spinBtn.disabled = true; const spinRevolutions = 6 + Math.random() * 5; const extraAngle = Math.random() * Math.PI * 2; const finalRotation = currentRotation + (spinRevolutions * 2 * Math.PI) + extraAngle; const startRot = currentRotation; const startTime = performance.now(); const spinDuration = 1800; function animateSpin(now) { const elapsed = now - startTime; let t = Math.min(1, elapsed / spinDuration); const easeOutCubic = 1 - Math.pow(1-t,3); currentRotation = startRot + (finalRotation - startRot) * easeOutCubic; drawWheel(); if(t < 1) { requestAnimationFrame(animateSpin); } else { currentRotation = finalRotation % (Math.PI*2); drawWheel(); const angleStep = (Math.PI*2)/currentNameList.length; let pointerAngle = (Math.PI*2 - (currentRotation % (Math.PI*2))) % (Math.PI*2); let idx = Math.floor(pointerAngle / angleStep) % currentNameList.length; const winner = currentNameList[idx]; eliminateName(winner); spinning = false; if(currentNameList.length > 1) spinBtn.disabled = false; else spinBtn.disabled = true; localStorage.setItem('dogWheelNames', JSON.stringify(currentNameList)); } } requestAnimationFrame(animateSpin); }
+    function drawWheel() { if(!canvas || !ctx) return; const sizeDim = canvas.width; const center = sizeDim/2; const radius = sizeDim/2 - 8; const count = currentNameList.length; if(count === 0){ ctx.clearRect(0,0,sizeDim,sizeDim); ctx.font = "500 16px Inter"; ctx.fillStyle = "#94A3B8"; ctx.fillText("No names", center-40, center); return; } const angleStep = (Math.PI * 2) / count; const colors = ["#3B82F6","#10B981","#F59E0B","#EF4444","#8B5CF6","#EC4899","#06B6D4","#84CC16"]; ctx.clearRect(0,0,sizeDim,sizeDim); for(let i=0;i<count;i++){ let start = i * angleStep + currentRotation; let end = start + angleStep; ctx.beginPath(); ctx.moveTo(center,center); ctx.arc(center,center,radius,start,end); ctx.fillStyle = colors[i % colors.length]; ctx.fill(); ctx.strokeStyle = "#FFFFFF"; ctx.lineWidth = 2.5; ctx.stroke(); ctx.save(); ctx.translate(center,center); ctx.rotate(start + angleStep/2); ctx.textAlign = "center"; ctx.textBaseline = "middle"; let textRadius = radius * 0.68; ctx.font = `500 ${Math.max(11, Math.min(16, 360/count))}px Inter`; ctx.fillStyle = "#FFFFFF"; ctx.shadowBlur = 0; let shortName = currentNameList[i].length > 12 ? currentNameList[i].slice(0,10)+".." : currentNameList[i]; ctx.fillText(shortName, textRadius, 5); ctx.restore(); } ctx.beginPath(); ctx.arc(center,center,22,0,2*Math.PI); ctx.fillStyle = "#FFFFFF"; ctx.fill(); ctx.fillStyle = "#1E293B"; ctx.font = "500 16px Inter"; ctx.fillText("🐕", center-9, center+6); }
+    function updateGameFromNames(namesList, preserveRemaining=true) { if(!preserveRemaining) currentNameList = [...namesList]; else currentNameList = currentNameList.filter(n => namesList.includes(n)); if(currentNameList.length === 0){ spinBtn.disabled = true; remainingSpan.innerText = "0"; winnerMsgDiv.innerHTML = "🏆 No names left — click Reset or Generate"; drawWheel(); return; } remainingSpan.innerText = currentNameList.length; spinBtn.disabled = (currentNameList.length <= 1 || spinning); if(currentNameList.length === 1){ winnerMsgDiv.innerHTML = `🏆 GRAND WINNER: ${currentNameList[0]}! 🏆`; startConfetti(); spinBtn.disabled = true; } else { winnerMsgDiv.innerHTML = ""; spinBtn.disabled = spinning ? true : false; } drawWheel(); localStorage.setItem('dogWheelNames', JSON.stringify(currentNameList)); localStorage.setItem('dogWheelSize', currentSize); }
+    function eliminateName(selectedName) { let idx = currentNameList.indexOf(selectedName); if(idx !== -1 && currentNameList.length > 1) { currentNameList.splice(idx,1); updateGameFromNames(currentNameList, true); displayNameCards(currentNameList); if(currentNameList.length === 1){ winnerMsgDiv.innerHTML = `🏆 GRAND WINNER: ${currentNameList[0]}! 🏆`; startConfetti(); spinBtn.disabled = true; } else { winnerMsgDiv.innerHTML = `✖ Removed "${selectedName}". ${currentNameList.length} names left.`; } drawWheel(); } else if(currentNameList.length === 1){ winnerMsgDiv.innerHTML = `🏆 CHAMPION: ${currentNameList[0]} — reset to play again.`; spinBtn.disabled = true; } }
+    function spinWheel() { if(spinning) return; if(currentNameList.length <= 1) { if(currentNameList.length===1) winnerMsgDiv.innerHTML = `Game finished! ${currentNameList[0]} is the winner. Reset to spin.`; return; } spinning = true; spinBtn.disabled = true; const spinRevolutions = 6 + Math.random() * 5; const extraAngle = Math.random() * Math.PI * 2; const finalRotation = currentRotation + (spinRevolutions * 2 * Math.PI) + extraAngle; const startRot = currentRotation; const startTime = performance.now(); const spinDuration = 1600; function animateSpin(now) { const elapsed = now - startTime; let t = Math.min(1, elapsed / spinDuration); const easeOutCubic = 1 - Math.pow(1-t,3); currentRotation = startRot + (finalRotation - startRot) * easeOutCubic; drawWheel(); if(t < 1) { requestAnimationFrame(animateSpin); } else { currentRotation = finalRotation % (Math.PI*2); drawWheel(); const angleStep = (Math.PI*2)/currentNameList.length; let pointerAngle = (Math.PI*2 - (currentRotation % (Math.PI*2))) % (Math.PI*2); let idx = Math.floor(pointerAngle / angleStep) % currentNameList.length; const winner = currentNameList[idx]; eliminateName(winner); spinning = false; if(currentNameList.length > 1) spinBtn.disabled = false; else spinBtn.disabled = true; localStorage.setItem('dogWheelNames', JSON.stringify(currentNameList)); } } requestAnimationFrame(animateSpin); }
     function resetGame() { if(spinning) return; if(currentNameList.length > 0) { currentNameList = [...currentNameList]; } else { let fresh = generateNamesBySize(currentSize); currentNameList = [...fresh]; displayNameCards(currentNameList); } updateGameFromNames(currentNameList, true); winnerMsgDiv.innerHTML = ""; drawWheel(); }
     function generateFreshNames() { if(spinning) return; const newNames = generateNamesBySize(currentSize); currentNameList = [...newNames]; displayNameCards(currentNameList); updateGameFromNames(currentNameList); winnerMsgDiv.innerHTML = ""; drawWheel(); }
     function setSize(size) { currentSize = size; sizeBtns.forEach(btn => { if(btn.getAttribute('data-size') === size) btn.classList.add('active'); else btn.classList.remove('active'); }); generateFreshNames(); }
     function loadFromStorage() { const storedNames = localStorage.getItem('dogWheelNames'); const storedSize = localStorage.getItem('dogWheelSize'); if(storedSize && ['small','medium','large'].includes(storedSize)) { currentSize = storedSize; sizeBtns.forEach(btn => { if(btn.getAttribute('data-size') === currentSize) btn.classList.add('active'); else btn.classList.remove('active'); }); } if(storedNames) { try{ let arr = JSON.parse(storedNames); if(Array.isArray(arr) && arr.length>0){ currentNameList = arr; displayNameCards(currentNameList); updateGameFromNames(currentNameList, true); drawWheel(); return; } }catch(e){} } let defaultNames = generateNamesBySize(currentSize); currentNameList = defaultNames; displayNameCards(currentNameList); updateGameFromNames(currentNameList); drawWheel(); }
     
+    function initFaqAccordion() {
+      const faqItems = document.querySelectorAll('.faq-item');
+      faqItems.forEach(item => {
+        const questionDiv = item.querySelector('.faq-question');
+        questionDiv.addEventListener('click', () => {
+          const isActive = item.classList.contains('active');
+          faqItems.forEach(i => i.classList.remove('active'));
+          if (!isActive) item.classList.add('active');
+        });
+      });
+    }
+
     function initPanels() {
       const panels = { cuteNames: document.getElementById('cuteNamesPanel'), breedNames: document.getElementById('breedNamesPanel'), funnyNames: document.getElementById('funnyNamesPanel'), uniqueNames: document.getElementById('uniqueNamesPanel'), privacy: document.getElementById('privacyPanel'), terms: document.getElementById('termsPanel'), contact: document.getElementById('contactPanel'), about: document.getElementById('aboutPanel') };
       function closeAllPanels() { Object.values(panels).forEach(p => { if(p) p.classList.remove('open-panel'); }); }
@@ -321,9 +386,9 @@
     }
     function initMenu() { const menu = document.getElementById('sideMenu'); const overlay = document.getElementById('menuOverlay'); const openBtn = document.getElementById('menuToggleBtn'); const closeBtn = document.getElementById('closeMenuBtn'); openBtn.addEventListener('click', () => { menu.classList.add('open'); overlay.classList.add('active'); }); closeBtn.addEventListener('click', () => { menu.classList.remove('open'); overlay.classList.remove('active'); }); }
     generateBtn.addEventListener('click', generateFreshNames); spinBtn.addEventListener('click', spinWheel); resetBtn.addEventListener('click', resetGame); sizeBtns.forEach(btn => { btn.addEventListener('click', (e) => { const size = btn.getAttribute('data-size'); if(size) setSize(size); }); });
-    function init() { initMenu(); initPanels(); loadFromStorage(); }
+    function init() { initMenu(); initPanels(); loadFromStorage(); initFaqAccordion(); }
     init();
   })();
 </script>
 </body>
-  </html>
+</html>
